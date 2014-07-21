@@ -1,0 +1,32 @@
+{
+  "name": "metalsmith-concat",
+  "version": "0.0.0",
+  "description": "A Metalsmith plugin to minify CSS files.",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aymericbeaumet/metalsmith-concat.git"
+  },
+  "keywords": [
+    "metalsmith",
+    "plugin"
+  ],
+  "author": "Aymeric Beaumet <aymeric@beaumet.me> (http://beaumet.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aymericbeaumet/metalsmith-concat/issues"
+  },
+  "homepage": "https://github.com/aymericbeaumet/metalsmith-concat",
+  "dependencies": {
+    "minimatch": "^0.4.0"
+  },
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "lodash": "^2.4.1",
+    "metalsmith": "~0.8.0",
+    "mocha": "~1.20.1"
+  }
+}
