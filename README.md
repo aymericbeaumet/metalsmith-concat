@@ -58,6 +58,9 @@ and deleted from the build.
 
 ## Changelog
 
+* 0.0.2
+  * Fix an issue with file content
+
 * 0.0.1
   * Working plugin
 

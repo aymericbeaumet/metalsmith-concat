@@ -9,9 +9,9 @@ var concat = require('../lib');
 describe('metalsmith-concat', function() {
 
   var FILES = {
-    'first/file': { content: 'lorem' },
-    'second/file': { content: ' ' },
-    'third/file': { content: 'ipsum' }
+    'first/file': { contents: 'lorem' },
+    'second/file': { contents: ' ' },
+    'third/file': { contents: 'ipsum' }
   };
   var files;
 
@@ -25,7 +25,7 @@ describe('metalsmith-concat', function() {
     concat({
       output: 'output/file/path'
     })(files, null, function() {
-      expect(files['output/file/path']).to.deep.equal({ content: 'lorem ipsum' });
+      expect(files['output/file/path']).to.deep.equal({ contents: 'lorem ipsum' });
       done();
     });
   });
@@ -36,7 +36,7 @@ describe('metalsmith-concat', function() {
       files: '*(first|third)/*',
       output: 'output/file/path'
     })(files, null, function() {
-      expect(files['output/file/path']).to.deep.equal({ content: 'loremipsum' });
+      expect(files['output/file/path']).to.deep.equal({ contents: 'loremipsum' });
       done();
     });
   });
@@ -47,7 +47,7 @@ describe('metalsmith-concat', function() {
       files: '',
       output: 'output/file/path'
     })(files, null, function() {
-      expect(files['output/file/path']).to.deep.equal({ content: '' });
+      expect(files['output/file/path']).to.deep.equal({ contents: '' });
       done();
     });
   });
