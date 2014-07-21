@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '0.10'
+
+before_install:
+- npm install -g npm
+
+install:
+- npm install
+- cd ./example && npm install && cd -
+
+script:
+- node ./node_modules/mocha/bin/mocha
+- cd example && node ./build.js && cd -
+
+deploy:
+  provider: npm
+  email: aymeric@beaumet.me
+  api_key:
+    secure: EVGzYN3g9A/icxmaWl2geF2t55gzLnXQW2Zd3GVAM3nfPmor52/TxlfUfhK6JPyPOIq+pjEpr5qC80MEJYGz/2RdovrWqV1XX8hcVocWKqo8qn3jalmWop+IE/9gADDjnD2gP3ax142SUVjP9U06H5zZxNHvk0GpR2yKqv7yIew=
+  on:
+    repo: aymericbeaumet/metalsmith-concat
+    all_branches: true
+    tags: true
