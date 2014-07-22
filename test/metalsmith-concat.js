@@ -63,7 +63,7 @@ describe('metalsmith-concat', function() {
   });
 
 
-  it('should delete concatenated files if asked to', function(done) {
+  it('should keep concatenated files if asked to', function(done) {
     concat({
       output: 'output/file/path',
       keepConcatenated: true
