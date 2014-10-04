@@ -58,6 +58,9 @@ and deleted from the build.
 
 ## Changelog
 
+* 1.0.0
+  * Bump stable
+
 * 0.0.2
   * Fix an issue with file content
 
