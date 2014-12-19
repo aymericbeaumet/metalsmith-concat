@@ -1,4 +1,4 @@
-# metalsmith-concat [![Build Status](https://travis-ci.org/aymericbeaumet/metalsmith-concat.svg?branch=master)](https://travis-ci.org/aymericbeaumet/metalsmith-concat) [![NPM version](https://badge.fury.io/js/metalsmith-concat.svg)](http://badge.fury.io/js/metalsmith-concat)
+# metalsmith-concat [![Build Status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat.svg?style=flat)](https://travis-ci.org/aymericbeaumet/metalsmith-concat) [![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat)](http://badge.fury.io/js/metalsmith-concat)
 
 A Metalsmith plugin to concatenate files.
 
