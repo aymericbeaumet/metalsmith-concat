@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-concat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Metalsmith plugin to minify CSS files.",
   "main": "lib/index.js",
   "directories": {
@@ -28,5 +28,8 @@
     "lodash": "^2.4.1",
     "metalsmith": "~0.8.0",
     "mocha": "~1.20.1"
+  },
+  "scripts":{
+    "test": "node_modules/.bin/mocha --reporter spec test/*.js"
   }
 }
