@@ -75,7 +75,6 @@ describe('metalsmith-concat', function() {
 
 
   it('should throw an error if no output path is given', function(done) {
-    var options = {output: 'output/file/path'};
     expect(function() {
       concat()();
     }).to.throw();
