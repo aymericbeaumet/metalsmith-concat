@@ -82,4 +82,14 @@ describe('metalsmith-concat', function() {
   });
 
 
+  it('should concat files passed as an Array', function(done) {
+    concat({
+      files: ['first/file', 'third/file'],
+      output: 'output/file/path'
+    })(files, null, function() {
+      expect(files['output/file/path']).to.deep.equal({ contents: 'loremipsum' });
+      done();
+    });
+  });
+
 });
