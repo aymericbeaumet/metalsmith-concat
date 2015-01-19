@@ -38,7 +38,7 @@ Metalsmith(__dirname)
 ```
 
 #### files
-Type: `String`/ `Array[string]`
+Type: `String` / `String[]`
 Default: `'**/*'`
 
 This defines which files are concatenated. A string will concatenate files that
