@@ -25,18 +25,27 @@ describe('metalsmith-concat', function() {
     concat({
       output: 'output/file/path'
     })(files, null, function() {
-      expect(files['output/file/path']).to.deep.equal({ contents: 'lorem ipsum' });
+      expect(files['output/file/path']).to.deep.equal({ contents: 'lorem\n \nipsum\n' });
       done();
     });
   });
 
+  it('should not add newlines when options.insertNewline is false', function(done) {
+    concat({
+      output: 'output/file/path',
+      insertNewline: false,
+    })(files, null, function() {
+      expect(files['output/file/path']).to.deep.equal({ contents: 'lorem ipsum' });
+      done();
+    });
+  });
 
   it('should only concat files matching the given pattern', function(done) {
     concat({
       files: '*(first|third)/*',
       output: 'output/file/path'
     })(files, null, function() {
-      expect(files['output/file/path']).to.deep.equal({ contents: 'loremipsum' });
+      expect(files['output/file/path']).to.deep.equal({ contents: 'lorem\nipsum\n' });
       done();
     });
   });
@@ -87,9 +96,19 @@ describe('metalsmith-concat', function() {
       files: ['first/file', 'third/file'],
       output: 'output/file/path'
     })(files, null, function() {
-      expect(files['output/file/path']).to.deep.equal({ contents: 'loremipsum' });
+      expect(files['output/file/path']).to.deep.equal({ contents: 'lorem\nipsum\n' });
       done();
     });
   });
 
+  it('should concat files passed as an Array without inserting newline if options.insertNewline is set to false', function(done) {
+    concat({
+      files: ['first/file', 'third/file'],
+      output: 'output/file/path',
+      insertNewline: false,
+    })(files, null, function() {
+      expect(files['output/file/path']).to.deep.equal({ contents: 'loremipsum' });
+      done();
+    });
+  });
 });
