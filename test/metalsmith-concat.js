@@ -101,6 +101,7 @@ describe('metalsmith-concat', function() {
     });
   });
 
+
   it('should concat files passed as an Array without inserting newline if options.insertNewline is set to false', function(done) {
     concat({
       files: ['first/file', 'third/file'],
