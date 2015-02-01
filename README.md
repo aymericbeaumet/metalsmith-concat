@@ -68,12 +68,10 @@ article](http://evanhahn.com/newline-necessary-at-the-end-of-javascript-files/))
 ## Changelog
 
 * 2.0.0
-  * Add a newline at the end of each concatenated file by default
-    (https://github.com/aymericbeaumet/metalsmith-concat/pull/4)
+  * Add a newline at the end of each concatenated file by default ([#4](https://github.com/aymericbeaumet/metalsmith-concat/pull/4))
 
 * 1.0.1
-  * Add the possibility to pass an array of files instead of a matching pattern
-    (https://github.com/aymericbeaumet/metalsmith-concat/pull/2)
+  * Add the possibility to pass an array of files instead of a matching pattern ([#2](https://github.com/aymericbeaumet/metalsmith-concat/pull/2))
 
 * 1.0.0
   * Bump stable
