@@ -57,10 +57,23 @@ Type: `Boolean` Default: `false`
 Whether to keep the files which were concatenated. By default they are not kept
 and deleted from the build.
 
+#### insertNewLine
+Type `Boolean` Default: `true`
+
+Whether a trailing new line should be added to each concatenated file. Unless
+you face a problem, you should keep this option on as removing it could cause
+invalid concatenated files (see [this
+article](http://evanhahn.com/newline-necessary-at-the-end-of-javascript-files/)).
+
 ## Changelog
+
+* 2.0.0
+  * Add a newline at the end of each concatenated file by default
+    (https://github.com/aymericbeaumet/metalsmith-concat/pull/4)
 
 * 1.0.1
   * Add the possibility to pass an array of files instead of a matching pattern
+    (https://github.com/aymericbeaumet/metalsmith-concat/pull/2)
 
 * 1.0.0
   * Bump stable
