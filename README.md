@@ -41,9 +41,10 @@ Metalsmith(__dirname)
 Type: `String` / `String[]`
 Default: `'**/*'`
 
-This defines which files are concatenated. A string will concatenate files that
-match the pattern with [minimatch](https://github.com/isaacs/minimatch). An
-Array will concatenate files matching filespaths listed as strings in the array.
+This defines which files are concatenated. A string will be considered as a
+[minimatch](https://github.com/isaacs/minimatch) pattern and will concatenate the
+files it matches. An array of string will concatenate files at the corresponding
+filepaths (minimatch patterns will not work here).
 
 #### output
 Type: `String`
