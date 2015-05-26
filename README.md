@@ -30,7 +30,7 @@ var MetalSmith = require('metalsmith');
 var concat = require('metalsmith-concat');
 
 Metalsmith(__dirname)
-  .use(concat{
+  .use(concat({
     files: 'styles/**/*.css',
     output: 'styles/app.css'
   }));
