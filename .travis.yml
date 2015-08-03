@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-- '0.10'
+- 0.10
+- 0.12
 
 before_install:
 - npm install -g npm
@@ -10,7 +11,7 @@ install:
 - cd ./example && npm install && cd -
 
 script:
-- node ./node_modules/mocha/bin/mocha
+- npm test
 - cd example && node ./build.js && cd -
 
 deploy:
