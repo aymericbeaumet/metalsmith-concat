@@ -1,18 +1,18 @@
 language: node_js
 node_js:
-- 0.10
-- 0.12
+  - 0.10
+  - 0.12
 
 before_install:
-- npm install -g npm
+  - git config --global core.autocrlf input
 
 install:
-- npm install
-- cd ./example && npm install && cd -
+  - npm install
+  - cd ./example && npm install && cd -
 
 script:
-- npm test
-- cd example && node ./build.js && cd -
+  - npm test
+  - cd example && node ./build.js && cd -
 
 deploy:
   provider: npm

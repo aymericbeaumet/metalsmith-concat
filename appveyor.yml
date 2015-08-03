@@ -1,0 +1,20 @@
+environment:
+  matrix:
+    - node_js: 0.10
+    - node_js: 0.12
+
+init:
+  - git config --global core.autocrlf input
+
+install:
+  - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:node_js)
+  - npm install
+  - cd ./example && npm install && cd -
+
+build: off
+
+test_script:
+  - cmd: npm test
+  - cmd: cd example && node ./build.js && cd -
+  - ps: npm test
+  - ps: cd example && node ./build.js && cd -
