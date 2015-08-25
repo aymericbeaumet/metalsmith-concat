@@ -1,0 +1,24 @@
+environment:
+  matrix:
+    - node_js: 0.10
+    - node_js: 0.12
+
+install:
+  - npm install
+  - pushd example && npm install && popd
+
+test_script:
+  - node --version && npm --version
+  - npm test
+  - pushd example && node build.js && popd
+
+###
+
+matrix:
+  fast_finish: true
+
+init:
+  - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:node_js)
+  - git config --global core.autocrlf input
+
+build: off
