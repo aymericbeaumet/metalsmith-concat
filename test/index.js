@@ -3,7 +3,7 @@
 var test = require('tape')
 
 test('metalsmith-concat', function (t) {
-  var concat = require('../..')
+  var concat = require('..')
 
   t.test('should concatenate all files by default', function (q) {
     q.plan(1)
