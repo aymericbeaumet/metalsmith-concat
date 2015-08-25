@@ -1,6 +1,6 @@
 [![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat)](https://www.npmjs.com/package/metalsmith-concat)
 [![Linux Build Status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=linux)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
-[![Windows Build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat/branch/master)
+[![Windows Build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
 [![Coverage Status](https://img.shields.io/codeclimate/coverage/github/aymericbeaumet/metalsmith-concat.svg?style=flat)](https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
 [![Dependency Status](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
 
@@ -80,7 +80,7 @@ It is also possible to pass a string, in which case it will be used instead of
 
 ## Changelog
 
-* 3.0.0
+* 3.0.2
   * An array of minimatch patterns can now be passed as `options.files` ([#6](https://github.com/aymericbeaumet/metalsmith-concat/issues/6), [#9](https://github.com/aymericbeaumet/metalsmith-concat/issues/9))
   * File paths are normalized, hence making this plugin working on Windows
     ([#8](https://github.com/aymericbeaumet/metalsmith-concat/issues/8))

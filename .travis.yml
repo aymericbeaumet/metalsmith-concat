@@ -3,6 +3,10 @@ node_js:
   - 0.10
   - 0.12
 
+before_install:
+  - git config --global core.autocrlf input
+  - npm install --global npm@latest
+
 install:
   - npm install
   - pushd example && npm install && popd
@@ -12,14 +16,14 @@ script:
   - npm run test-coverage
   - pushd example && node build.js && popd
 
-after_script:
+after_success:
   - npm run codeclimate
 
 deploy:
   provider: npm
   email: aymeric@beaumet.me
   api_key:
-    secure: ElLpC/BFiBm4hKSfMTEHhZewoXeauhmdslaexC2b+Bg9y9mjJhdR+hhBgtWoY+hoIaBH2E+hDieRMNYCEnsANRo3BDzSJRF5dzsb61Ul13po9xJVz2ZIlhIePAUQLB/SAiDqlyLonDUdMr1iSw/l8t3T6iZ6iiblwX9f/XJ4WrY=
+    secure: IeiG99LZRRTBxdCaPJZxWcYLtA2NZ1Q28sIrNEtRCiZ/UifxplLfXn82+Qp8CUMui7klinD4WAOGgQlkfg8gpQWoOctZUlR2XzpC4yrnuGDl6mz8Xpx6n5cm6hBjnuN0zw/kc0vWn3DXRljoDPRl7UA7W8pc78mgv2RPti3Udlg=
   on:
     repo: aymericbeaumet/metalsmith-concat
     branch: master
