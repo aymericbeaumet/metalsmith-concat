@@ -3,23 +3,33 @@ node_js:
   - 0.10
   - 0.12
 
-before_install:
-  - git config --global core.autocrlf input
-
 install:
   - npm install
-  - cd ./example && npm install && cd -
+  - pushd example && npm install && popd
 
 script:
-  - npm test
-  - cd example && node ./build.js && cd -
+  - node --version && npm --version
+  - npm run test-coverage
+  - pushd example && node build.js && popd
+
+after_script:
+  - npm run codeclimate
 
 deploy:
   provider: npm
   email: aymeric@beaumet.me
   api_key:
-    secure: EVGzYN3g9A/icxmaWl2geF2t55gzLnXQW2Zd3GVAM3nfPmor52/TxlfUfhK6JPyPOIq+pjEpr5qC80MEJYGz/2RdovrWqV1XX8hcVocWKqo8qn3jalmWop+IE/9gADDjnD2gP3ax142SUVjP9U06H5zZxNHvk0GpR2yKqv7yIew=
+    secure: ElLpC/BFiBm4hKSfMTEHhZewoXeauhmdslaexC2b+Bg9y9mjJhdR+hhBgtWoY+hoIaBH2E+hDieRMNYCEnsANRo3BDzSJRF5dzsb61Ul13po9xJVz2ZIlhIePAUQLB/SAiDqlyLonDUdMr1iSw/l8t3T6iZ6iiblwX9f/XJ4WrY=
   on:
     repo: aymericbeaumet/metalsmith-concat
-    all_branches: true
+    branch: master
     tags: true
+
+###
+
+sudo: false
+
+addons:
+  code_climate:
+    repo_token:
+      secure: SmzRS/9BnajgeebIYSgB6g/EoyKWLNuuLROQULjjCR2BOqSL+TyngZb06yl0YQXcSTOStC2z/CtEttuORGB6iZ/Vp5Oo2qVcKRm2CAB4JVUGpi/EWPsMWfGRNQ6qXWVEluqEynme6lvK2mZTdqRFvE9Hvx4rXbLLOWy36LZXP0Y=
