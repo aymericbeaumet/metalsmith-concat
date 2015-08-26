@@ -80,7 +80,7 @@ It is also possible to pass a string, in which case it will be used instead of
 
 ## Changelog
 
-* 3.0.2
+* 3.0.0
   * An array of minimatch patterns can now be passed as `options.files` ([#6](https://github.com/aymericbeaumet/metalsmith-concat/issues/6), [#9](https://github.com/aymericbeaumet/metalsmith-concat/issues/9))
   * File paths are normalized, hence making this plugin working on Windows
     ([#8](https://github.com/aymericbeaumet/metalsmith-concat/issues/8))
