@@ -39,7 +39,7 @@ Metalsmith(__dirname)
   .use(concat({
     files: 'styles/**/*.css',
     output: 'styles/app.css'
-  }));
+  }))
   .build();
 ```
 
