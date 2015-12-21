@@ -78,8 +78,20 @@ article](http://evanhahn.com/newline-necessary-at-the-end-of-javascript-files/))
 It is also possible to pass a string, in which case it will be used instead of
 `\n`.
 
+#### forceOutput
+Type: `Boolean`
+Default: `false`
+
+By default metalsmith-concat throws error if output file already exists. You can 
+disable existing file check by using this option.
+
 ## Changelog
 
+* 3.1.0
+  * It is possible to override existing output file check by setting `options.forceOutput` to true ([#19](https://github.com/aymericbeaumet/metalsmith-concat/issues/19))
+  * Handle metalsmith errors gracefully as described [here](http://www.robinthrift.com/posts/metalsmith-part-3-refining-our-tools/).
+  * Upgrade all dependencies to their latest versions.
+  
 * 3.0.0
   * An array of minimatch patterns can now be passed as `options.files` ([#6](https://github.com/aymericbeaumet/metalsmith-concat/issues/6), [#9](https://github.com/aymericbeaumet/metalsmith-concat/issues/9))
   * File paths are normalized, hence making this plugin working on Windows

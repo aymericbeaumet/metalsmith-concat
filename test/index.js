@@ -199,15 +199,36 @@ test('metalsmith-concat', function (t) {
     }
   })
 
-  t.test('should throw an error if options.output already exists', function (q) {
+  t.test('should throw an error if options.output already exists by default', function (q) {
     q.plan(2)
     var plugin = concat({ output: 'output/path' })
-    try {
-      plugin({ 'output/path': {} })
-    } catch (error) {
+    plugin({ 'output/path': {}}, null, function (error) {
       q.ok(error instanceof Error)
       q.deepEqual(error.message, 'The file "output/path" already exists')
+    })
+  })
+
+  t.test('should throw an error if options.output already exists when indicated as option', function (q) {
+    q.plan(2)
+    var plugin = concat({ output: 'output/path', forceOutput: false })
+    plugin({ 'output/path': {}}, null, function (error) {
+      q.ok(error instanceof Error)
+      q.deepEqual(error.message, 'The file "output/path" already exists')
+    })
+  })
+
+  t.test('should override existing file check if forceOutput is enabled', function (q) {
+    q.plan(1)
+    var files = {
+      'output/path1': { contents: 'test123' },
+      'output/path2': { contents: '456test' }
     }
+    var plugin = concat({ files: ['output/path1', 'output/path2'], output: 'output/path', forceOutput: true })
+    plugin(files, null, function () {
+      q.deepEqual(files, {
+        'output/path': { contents: 'test123\n456test\n' }
+      })
+    })
   })
 
   // https://github.com/aymericbeaumet/metalsmith-concat/issues/9
