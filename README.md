@@ -80,6 +80,9 @@ It is also possible to pass a string, in which case it will be used instead of
 
 ## Changelog
 
+* 4.0.1
+  * Drop node 0.10 and 0.12 support as Metalsmith requires generators
+
 * 4.0.0
   * Update dependencies
   * Remove `npm-shrinkwrap`
