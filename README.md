@@ -125,4 +125,4 @@ It is also possible to pass a string, in which case it will be used instead of
 
 ## License
 
-MIT © [Aymeric Beaumet](http://beaumet.me)
+MIT © [Aymeric Beaumet](http://aymericbeaumet.com)
