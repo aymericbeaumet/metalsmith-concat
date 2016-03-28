@@ -87,6 +87,9 @@ It is also possible to pass a string, in which case it will be used instead of
 
 ## Changelog
 
+* 4.1.1
+  * Exclude test files from CodeClimate
+
 * 4.1.0
   * It is possible to override existing output file check by setting `options.forceOutput` to true ([#19](https://github.com/aymericbeaumet/metalsmith-concat/issues/19))
   * Handle metalsmith errors gracefully as described [here](http://www.robinthrift.com/posts/metalsmith-part-3-refining-our-tools/)

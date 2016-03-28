@@ -4,3 +4,4 @@ languages:
 exclude_paths:
   - examples/**
   - node_modules/**
+  - test/**
