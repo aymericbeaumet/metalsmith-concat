@@ -59,6 +59,13 @@ Type: `String`
 It represents the filepath where the concatenated content will be outputted.
 This option is **mandatory**.
 
+#### forceOutput
+Type: `Boolean`
+Default: `false`
+
+By default metalsmith-concat throws error if the output file already exists. You
+can the existing output file to be overwritten by setting this option to `true`.
+
 #### keepConcatenated
 Type: `Boolean`
 Default: `false`
@@ -79,6 +86,10 @@ It is also possible to pass a string, in which case it will be used instead of
 `\n`.
 
 ## Changelog
+
+* 4.1.0
+  * It is possible to override existing output file check by setting `options.forceOutput` to true ([#19](https://github.com/aymericbeaumet/metalsmith-concat/issues/19))
+  * Handle metalsmith errors gracefully as described [here](http://www.robinthrift.com/posts/metalsmith-part-3-refining-our-tools/)
 
 * 4.0.1
   * Drop node 0.10 and 0.12 support as Metalsmith requires generators
