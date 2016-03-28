@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - 0.10
   - 0.12
+  - 4
+  - 5
 
 before_install:
   - npm install --global npm@latest
@@ -17,16 +19,6 @@ script:
 
 after_success:
   - npm run codeclimate
-
-deploy:
-  provider: npm
-  email: aymeric@beaumet.me
-  api_key:
-    secure: IeiG99LZRRTBxdCaPJZxWcYLtA2NZ1Q28sIrNEtRCiZ/UifxplLfXn82+Qp8CUMui7klinD4WAOGgQlkfg8gpQWoOctZUlR2XzpC4yrnuGDl6mz8Xpx6n5cm6hBjnuN0zw/kc0vWn3DXRljoDPRl7UA7W8pc78mgv2RPti3Udlg=
-  on:
-    repo: aymericbeaumet/metalsmith-concat
-    branch: master
-    tags: true
 
 ###
 

@@ -80,6 +80,12 @@ It is also possible to pass a string, in which case it will be used instead of
 
 ## Changelog
 
+* 4.0.0
+  * Update dependencies
+  * Remove `npm-shrinkwrap`
+  * Fix linting
+  * Add node 4 and 5 to Travis/AppVeyor
+
 * 3.0.0
   * An array of minimatch patterns can now be passed as `options.files` ([#6](https://github.com/aymericbeaumet/metalsmith-concat/issues/6), [#9](https://github.com/aymericbeaumet/metalsmith-concat/issues/9))
   * File paths are normalized, hence making this plugin working on Windows
