@@ -29,4 +29,4 @@ cache:
   - C:\Users\appveyor\AppData\Roaming\npm\node_modules -> npm-shrinkwrap.json
   - C:\Users\appveyor\AppData\Roaming\npm-cache -> npm-shrinkwrap.json
   - node_modules -> npm-shrinkwrap.json
-  - example/node_modules -> example/package.json
+  - example/node_modules -> example/npm-shrinkwrap.json
