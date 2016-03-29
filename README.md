@@ -1,8 +1,21 @@
-[![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat)](https://www.npmjs.com/package/metalsmith-concat)
-[![Linux Build Status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=linux)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
-[![Windows Build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
-[![Coverage Status](https://img.shields.io/codeclimate/coverage/github/aymericbeaumet/metalsmith-concat.svg?style=flat)](https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
-[![Dependency Status](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
+[![NPM version]
+  (https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat&label=npm)]
+  (https://www.npmjs.com/package/metalsmith-concat)
+[![Linux Build]
+  (https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=linux)]
+  (https://travis-ci.org/aymericbeaumet/metalsmith-concat)
+[![Windows Build]
+  (https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)]
+  (https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
+[![Coverage]
+  (https://img.shields.io/codeclimate/coverage/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=coverage)]
+  (https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
+[![GPA]
+  (https://img.shields.io/codeclimate/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=GPA)]
+  (https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
+[![Dependencies]
+  (https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat&label=dependencies)]
+  (https://david-dm.org/aymericbeaumet/metalsmith-concat)
 
 # metalsmith-concat
 
@@ -63,8 +76,9 @@ This option is **mandatory**.
 Type: `Boolean`
 Default: `false`
 
-By default metalsmith-concat throws error if the output file already exists. You
-can the existing output file to be overwritten by setting this option to `true`.
+By default metalsmith-concat return an error if the output file already exists.
+You can force an existing output file to be overwritten by setting this option
+to `true`.
 
 #### keepConcatenated
 Type: `Boolean`
