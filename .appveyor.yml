@@ -3,15 +3,9 @@ environment:
     - node_js: 4
     - node_js: 5
 
-init:
-  - git config --global core.autocrlf input
-  - ps: Install-Product node $env:node_js
-
 install:
   - npm install
   - pushd example && npm install && popd
-
-build: off
 
 test_script:
   - node --version && npm --version
@@ -20,13 +14,19 @@ test_script:
 
 ###
 
-clone_depth: 10
-
-matrix:
-  fast_finish: true
+build: off
 
 cache:
   - C:\Users\appveyor\AppData\Roaming\npm\node_modules -> npm-shrinkwrap.json
   - C:\Users\appveyor\AppData\Roaming\npm-cache -> npm-shrinkwrap.json
   - node_modules -> npm-shrinkwrap.json
   - example/node_modules -> example/npm-shrinkwrap.json
+
+clone_depth: 10
+
+init:
+  - git config --global core.autocrlf input
+  - ps: Install-Product node $env:node_js
+
+matrix:
+  fast_finish: true

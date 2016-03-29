@@ -3,16 +3,13 @@ node_js:
   - 4
   - 5
 
-before_install:
-  - npm install --global npm@latest
-
 install:
   - npm install
   - pushd example && npm install && popd
 
 script:
   - node --version && npm --version
-  - npm run test-coverage
+  - npm test
   - pushd example && node build.js && popd
 
 after_success:
@@ -20,9 +17,9 @@ after_success:
 
 ###
 
-sudo: false
-
 addons:
   code_climate:
     repo_token:
       secure: SmzRS/9BnajgeebIYSgB6g/EoyKWLNuuLROQULjjCR2BOqSL+TyngZb06yl0YQXcSTOStC2z/CtEttuORGB6iZ/Vp5Oo2qVcKRm2CAB4JVUGpi/EWPsMWfGRNQ6qXWVEluqEynme6lvK2mZTdqRFvE9Hvx4rXbLLOWy36LZXP0Y=
+
+sudo: false
