@@ -1,19 +1,19 @@
 [![NPM version]
   (https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat&label=npm)]
   (https://www.npmjs.com/package/metalsmith-concat)
-[![Linux Build]
+[![Linux build status]
   (https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=linux)]
   (https://travis-ci.org/aymericbeaumet/metalsmith-concat)
-[![Windows Build]
+[![Windows build status]
   (https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)]
   (https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
-[![Coverage]
+[![Code coverage]
   (https://img.shields.io/codeclimate/coverage/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=coverage)]
   (https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
 [![GPA]
   (https://img.shields.io/codeclimate/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=GPA)]
   (https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
-[![Dependencies]
+[![Dependencies status]
   (https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat&label=dependencies)]
   (https://david-dm.org/aymericbeaumet/metalsmith-concat)
 
