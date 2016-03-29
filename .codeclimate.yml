@@ -2,6 +2,6 @@ languages:
   JavaScript: true
 
 exclude_paths:
-  - examples/**
+  - example*/**
   - node_modules/**
   - test/**

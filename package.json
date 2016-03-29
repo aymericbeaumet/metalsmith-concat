@@ -1,14 +1,14 @@
 {
   "name": "metalsmith-concat",
   "version": "4.2.0",
+  "main": "lib",
   "description": "A Metalsmith plugin to concatenate files",
+  "author": "Aymeric Beaumet <aymeric@beaumet.me>",
+  "license": "CC0-1.0",
   "keywords": [
     "metalsmith",
     "plugin"
   ],
-  "author": "Aymeric Beaumet <aymeric@beaumet.me>",
-  "license": "MIT",
-  "main": "lib",
   "scripts": {
     "test": "standard && istanbul test node_modules/tape/bin/tape -- 'test/**/*.js'",
     "test-coverage": "npm test --coverage && istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
@@ -20,16 +20,7 @@
   "devDependencies": {
     "codeclimate-test-reporter": "0.3.1",
     "istanbul": "0.4.2",
-    "metalsmith": "2.1.0",
     "standard": "6.0.8",
     "tape": "4.5.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/aymericbeaumet/metalsmith-concat.git"
-  },
-  "bugs": {
-    "url": "https://github.com/aymericbeaumet/metalsmith-concat/issues"
-  },
-  "homepage": "https://github.com/aymericbeaumet/metalsmith-concat"
+  }
 }

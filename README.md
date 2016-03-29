@@ -1,21 +1,9 @@
-[![NPM version]
-  (https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat&label=npm)]
-  (https://www.npmjs.com/package/metalsmith-concat)
-[![Linux build status]
-  (https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=linux)]
-  (https://travis-ci.org/aymericbeaumet/metalsmith-concat)
-[![Windows build status]
-  (https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)]
-  (https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
-[![Code coverage]
-  (https://img.shields.io/codeclimate/coverage/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=coverage)]
-  (https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
-[![GPA]
-  (https://img.shields.io/codeclimate/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=GPA)]
-  (https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
-[![Dependencies status]
-  (https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat&label=dependencies)]
-  (https://david-dm.org/aymericbeaumet/metalsmith-concat)
+[![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat&label=npm)](https://www.npmjs.com/package/metalsmith-concat)
+[![Linux build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=linux)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
+[![Windows build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
+[![Code coverage](https://img.shields.io/codeclimate/coverage/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=coverage)](https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
+[![GPA](https://img.shields.io/codeclimate/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=GPA)](https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
+[![Dependencies status](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat&label=dependencies)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
 
 # metalsmith-concat
 
@@ -101,6 +89,9 @@ and deleted from the build (thus only keeping the newly created file at
 
 ## Changelog
 
+* 4.2.1
+  * Update license to public domain
+
 * 4.2.0
   * Require options.output to be a non-empty string
 
@@ -145,4 +136,7 @@ and deleted from the build (thus only keeping the newly created file at
 
 ## License
 
-MIT © [Aymeric Beaumet](http://aymericbeaumet.com)
+[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+
+To the extent possible under law, [Aymeric Beaumet](https://aymericbeaumet.com)
+has waived all copyright and related or neighboring rights to this work.
