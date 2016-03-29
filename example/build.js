@@ -6,4 +6,4 @@ var concat = require('..') // require('metalsmith-concat')
 
 Metalsmith(__dirname)
   .use(concat({ files: '**/*.css', output: 'main.css' }))
-  .build(function (err) { if (err) { throw err } })
+  .build(function (error) { if (error) { throw error } })
