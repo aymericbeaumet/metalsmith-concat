@@ -185,7 +185,7 @@ test('metalsmith-concat', function (t) {
       concat({})
     } catch (error) {
       q.ok(error instanceof Error)
-      q.deepEqual(error.message, '`options.output` is mandatory and has to be a string')
+      q.deepEqual(error.message, '`options.output` is mandatory and has to be a non-empty string')
     }
   })
 
@@ -195,7 +195,17 @@ test('metalsmith-concat', function (t) {
       concat({ output: false })
     } catch (error) {
       q.ok(error instanceof Error)
-      q.deepEqual(error.message, '`options.output` is mandatory and has to be a string')
+      q.deepEqual(error.message, '`options.output` is mandatory and has to be a non-empty string')
+    }
+  })
+
+  t.test('should throw error if options.output is an empty string', function (q) {
+    q.plan(2)
+    try {
+      concat({ output: '' })
+    } catch (error) {
+      q.ok(error instanceof Error)
+      q.deepEqual(error.message, '`options.output` is mandatory and has to be a non-empty string')
     }
   })
 

@@ -80,14 +80,6 @@ By default metalsmith-concat return an error if the output file already exists.
 You can force an existing output file to be overwritten by setting this option
 to `true`.
 
-#### keepConcatenated
-Type: `Boolean`
-Default: `false`
-
-Whether to keep the files which were concatenated. By default they are not kept
-and deleted from the build (thus only keeping the newly created file at
-`options.output`).
-
 #### insertNewLine
 Type: `Boolean` / `String`
 Default: `true`
@@ -99,7 +91,18 @@ article](http://evanhahn.com/newline-necessary-at-the-end-of-javascript-files/))
 It is also possible to pass a string, in which case it will be used instead of
 `\n`.
 
+#### keepConcatenated
+Type: `Boolean`
+Default: `false`
+
+Whether to keep the files which were concatenated. By default they are not kept
+and deleted from the build (thus only keeping the newly created file at
+`options.output`).
+
 ## Changelog
+
+* 4.2.0
+  * Require options.output to be a non-empty string
 
 * 4.1.1
   * Exclude test files from CodeClimate
