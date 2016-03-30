@@ -89,6 +89,9 @@ and deleted from the build (thus only keeping the newly created file at
 
 ## Changelog
 
+* 4.2.2
+  * Lightweight npm-shrinkwrap
+
 * 4.2.1
   * Update license to public domain
 
