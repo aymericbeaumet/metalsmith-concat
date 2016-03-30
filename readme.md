@@ -41,7 +41,6 @@ Metalsmith(__dirname)
     files: 'styles/**/*.css',
     output: 'styles/app.css'
   }))
-  .build();
 ```
 
 #### files

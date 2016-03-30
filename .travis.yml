@@ -22,4 +22,10 @@ addons:
     repo_token:
       secure: SmzRS/9BnajgeebIYSgB6g/EoyKWLNuuLROQULjjCR2BOqSL+TyngZb06yl0YQXcSTOStC2z/CtEttuORGB6iZ/Vp5Oo2qVcKRm2CAB4JVUGpi/EWPsMWfGRNQ6qXWVEluqEynme6lvK2mZTdqRFvE9Hvx4rXbLLOWy36LZXP0Y=
 
+git:
+  depth: 10
+
+matrix:
+  fast_finish: true
+
 sudo: false
