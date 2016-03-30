@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-concat",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "dependencies": {
     "balanced-match": {
       "version": "0.3.0",
