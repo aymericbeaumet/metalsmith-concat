@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-concat",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "dependencies": {
     "async": {
       "version": "2.0.0-rc.2",
