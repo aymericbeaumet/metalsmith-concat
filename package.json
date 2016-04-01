@@ -10,11 +10,15 @@
   "license": "CC0-1.0",
   "main": "lib",
   "dependencies": {
+    "async": "2.0.0-rc.2",
+    "glob": "7.0.3",
+    "lodash.flattendeep": "4.1.1",
     "minimatch": "3.0.0"
   },
   "devDependencies": {
     "codeclimate-test-reporter": "0.3.1",
     "istanbul": "0.4.2",
+    "sandboxed-module": "2.0.3",
     "standard": "6.0.8",
     "tape": "4.5.1"
   },

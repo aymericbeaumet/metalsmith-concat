@@ -86,7 +86,28 @@ Whether to keep the files which were concatenated. By default they are not kept
 and deleted from the build (thus only keeping the newly created file at
 `options.output`).
 
+#### searchPaths
+Type: `String` / `String[]`
+Default: `[]`
+
+The additional paths to search after the `src` directory given to Metalsmith.
+The paths are resolved relatively to the metalsmith root directory. Absolute
+paths can also been given. This feature is disabled by default. Example:
+
+```js
+{
+  files: [
+    'react/dist/react.min.js', // will be resolved from the node_modules
+    'index.js' // will be resolved from the directory given to Metalsmith
+  ],
+  searchPaths: [ 'node_modules' ]
+}
+```
+
 ## Changelog
+
+* 5.0.0
+  * Add the `searchPaths` option
 
 * 4.2.2
   * Lightweight npm-shrinkwrap
