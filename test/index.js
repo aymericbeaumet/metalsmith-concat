@@ -2,10 +2,8 @@
 
 const concat = require('..')
 const path = require('path')
-const sandbox = require('sandboxed-module')
+const proxyquire = require('proxyquire')
 const test = require('ava')
-
-sandbox.registerBuiltInSourceTransformer('istanbul')
 
 test.cb('metalsmith-concat should concatenate all files by default', (t) => {
   t.plan(2)
@@ -363,13 +361,10 @@ test.cb('metalsmith-concat should resolve relative searchPaths from the project 
 
 test.cb('metalsmith-concat should forward glob errors', (t) => {
   t.plan(1)
-  const _concat = sandbox.require('..', {
-    requires: {
-      glob (pattern, options, callback) {
-        return callback(new Error('glob error'))
-      }
-    },
-    singleOnly: true
+  const _concat = proxyquire('..', {
+    glob (pattern, options, callback) {
+      return callback(new Error('glob error'))
+    }
   })
   const files = {}
   const plugin = _concat({ files: ['**/*.md'], output: 'output', searchPaths: ['.'] })
@@ -381,15 +376,12 @@ test.cb('metalsmith-concat should forward glob errors', (t) => {
 
 test.cb('metalsmith-concat should forward fs.readFile errors', (t) => {
   t.plan(1)
-  const _concat = sandbox.require('..', {
-    requires: {
-      fs: {
-        readFile (filepath, callback) {
-          return callback(new Error('fs.readFile error'))
-        }
+  const _concat = proxyquire('..', {
+    fs: {
+      readFile (filepath, callback) {
+        return callback(new Error('fs.readFile error'))
       }
-    },
-    singleOnly: true
+    }
   })
   const files = {}
   const plugin = _concat({ files: ['**/*.md'], output: 'output', searchPaths: ['.'] })

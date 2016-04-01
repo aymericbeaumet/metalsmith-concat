@@ -106,6 +106,9 @@ paths can also been given. This feature is disabled by default. Example:
 
 ## Changelog
 
+* 5.0.1
+  * Fix 100% code coverage on Node 4 (sandboxed-module -> proxyquire)
+
 * 5.0.0
   * Add the `searchPaths` option
   * Switch test suite to nyc + ava
