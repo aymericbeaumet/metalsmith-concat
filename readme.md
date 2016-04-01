@@ -108,6 +108,7 @@ paths can also been given. This feature is disabled by default. Example:
 
 * 5.0.0
   * Add the `searchPaths` option
+  * Switch test suite to nyc + ava
 
 * 4.2.2
   * Lightweight npm-shrinkwrap
