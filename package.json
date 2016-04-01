@@ -12,7 +12,6 @@
   "dependencies": {
     "async": "2.0.0-rc.2",
     "glob": "7.0.3",
-    "lodash.flattendeep": "4.1.1",
     "minimatch": "3.0.0"
   },
   "devDependencies": {

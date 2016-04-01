@@ -47,11 +47,6 @@
       "from": "lodash._baseflatten@>=4.1.0 <4.2.0",
       "resolved": "https://registry.npmjs.org/lodash._baseflatten/-/lodash._baseflatten-4.1.1.tgz"
     },
-    "lodash.flattendeep": {
-      "version": "4.1.1",
-      "from": "lodash.flattendeep@4.1.1",
-      "resolved": "https://registry.npmjs.org/lodash.flattendeep/-/lodash.flattendeep-4.1.1.tgz"
-    },
     "minimatch": {
       "version": "3.0.0",
       "from": "minimatch@3.0.0",
