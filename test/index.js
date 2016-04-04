@@ -408,6 +408,22 @@ test.cb('metalsmith-concat should respect the order given by the metalsmith file
   })
 })
 
+// https://github.com/aymericbeaumet/metalsmith-concat/issues/26
+test.cb('metalsmith-concat should simplify the given path in the pattern', (t) => {
+  t.plan(2)
+  const files = {
+    'foo/bar/baz': { contents: 'foobarbaz' }
+  }
+  const plugin = concat({ files: 'foo//\\\\bar\\\\//baz', output: 'output/path' })
+  plugin(files, metalsmithFixture(), (error) => {
+    t.ifError(error)
+    t.same(files, {
+      'output/path': { contents: 'foobarbaz\n' }
+    })
+    t.end()
+  })
+})
+
 function filesFixture () {
   return {
     'first/file': { contents: 'lorem' },
