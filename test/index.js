@@ -391,6 +391,23 @@ test.cb('metalsmith-concat should forward fs.readFile errors', (t) => {
   })
 })
 
+// https://github.com/aymericbeaumet/metalsmith-concat/issues/25#issue-145523237
+test.cb('metalsmith-concat should respect the order given by the metalsmith files object', (t) => {
+  t.plan(2)
+  const files = {
+    '01_foo.css': { contents: 'first' },
+    '02_bar.css': { contents: 'second' }
+  }
+  const plugin = concat({ output: 'output/path' })
+  plugin(files, metalsmithFixture(), (error) => {
+    t.ifError(error)
+    t.same(files, {
+      'output/path': { contents: 'first\nsecond\n' }
+    })
+    t.end()
+  })
+})
+
 function filesFixture () {
   return {
     'first/file': { contents: 'lorem' },
