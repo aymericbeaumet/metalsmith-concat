@@ -106,6 +106,9 @@ paths can also been given. This feature is disabled by default. Example:
 
 ## Changelog
 
+* 6.0.0
+  * Expect and produce a `Buffer` for the `contents` key (breaking)
+
 * 5.0.2
   * Simplify the path given in the pattern
 
