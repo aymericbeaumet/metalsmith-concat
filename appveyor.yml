@@ -1,8 +1,9 @@
 environment:
-  node_js: 4
-  node_js: 5
-  node_js: 6
-  node_js: 7
+  matrix:
+    - node_js: 4
+    - node_js: 5
+    - node_js: 6
+    - node_js: 7
 
 install:
   - yarn
@@ -24,12 +25,16 @@ cache:
 clone_depth: 1
 
 init:
-  - ps: Install-Product node $env:node_js
+  - ps: Install-Product node $env:node_js $env:platform
   - choco install yarn
   - refreshenv
 
 matrix:
   fast_finish: true
+
+platform:
+  - x86
+  - x64
 
 shallow_clone: true
 
