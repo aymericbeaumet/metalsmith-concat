@@ -1,15 +1,15 @@
 environment:
-  matrix:
-    - node_js: 4
-    - node_js: 5
-    - node_js: 6
-    - node_js: 7
+  - node_js: 4
+  - node_js: 5
+  - node_js: 6
+  - node_js: 7
 
 install:
   - yarn
 
 test_script:
-  - node --version && yarn --version
+  - node --version
+  - yarn --version
   - yarn test
 
 ###
@@ -24,7 +24,6 @@ cache:
 clone_depth: 1
 
 init:
-  - git config --global core.autocrlf input
   - ps: Install-Product node $env:node_js
   - choco install yarn
   - refreshenv
