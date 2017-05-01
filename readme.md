@@ -95,13 +95,28 @@ Default: `[]`
 
 The additional paths to search after the `src` directory given to Metalsmith.
 The paths are resolved relatively to the metalsmith root directory. Absolute
-paths can also been given. This feature is disabled by default. Example:
+paths can also been given. An ignore pattern is applied on the results to make
+sure the `src` directory is not matched twice from a search path.
+
+Let's consider the following example:
+
+```
+src/
+  index.js
+node_modules/
+  react/
+    dist/
+      react.min.js
+```
+
+It is possible to include _React_ from the _node_modules_ before your _index.js_
+from _src_ by using the following configuration:
 
 ```js
 {
   files: [
-    'react/dist/react.min.js', // will be resolved from the node_modules
-    'index.js' // will be resolved from the directory given to Metalsmith
+    'react/dist/react.min.js', // found in node_modules
+    'index.js' // found in src
   ],
   searchPaths: ['node_modules'],
 }
