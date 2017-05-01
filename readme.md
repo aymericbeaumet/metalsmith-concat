@@ -1,11 +1,4 @@
-[![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat&label=npm)](https://www.npmjs.com/package/metalsmith-concat)
-[![Linux build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=linux)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
-[![Windows build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
-[![Code coverage](https://img.shields.io/codeclimate/coverage/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=coverage)](https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
-[![GPA](https://img.shields.io/codeclimate/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=GPA)](https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
-[![Dependencies status](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat&label=dependencies)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
-
-# metalsmith-concat
+# metalsmith-concat [![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat-square&label=npm)](https://www.npmjs.com/package/metalsmith-concat) [![Linux and OS X build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square&label=linux|osx)](https://travis-ci.org/aymericbeaumet/metalsmith-concat) [![Windows build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
 
 A Metalsmith plugin to concatenate files.
 
@@ -33,14 +26,14 @@ $ npm install metalsmith-concat
 ### JavaScript
 
 ```javascript
-var MetalSmith = require('metalsmith');
-var concat = require('metalsmith-concat');
+import MetalSmith from 'metalsmith';
+import concat from 'metalsmith-concat';
 
-Metalsmith(__dirname)
+new Metalsmith(__dirname)
   .use(concat({
     files: 'styles/**/*.css',
-    output: 'styles/app.css'
-  }))
+    output: 'styles/app.css',
+  }));
 ```
 
 #### files
@@ -100,14 +93,14 @@ paths can also been given. This feature is disabled by default. Example:
     'react/dist/react.min.js', // will be resolved from the node_modules
     'index.js' // will be resolved from the directory given to Metalsmith
   ],
-  searchPaths: [ 'node_modules' ]
+  searchPaths: ['node_modules'],
 }
 ```
 
 ## Changelog
 
 * 6.0.0
-  * Expect and produce a `Buffer` for the `contents` key (breaking)
+  * Expect and produce a `Buffer` for the `contents` key
 
 * 5.0.2
   * Simplify the path given in the pattern
