@@ -9,7 +9,8 @@ install:
   - yarn
 
 script:
-  - node --version && yarn --version
+  - node --version
+  - yarn --version
   - yarn test
 
 ###

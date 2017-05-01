@@ -19,7 +19,7 @@
     "standard": "10.0.2"
   },
   "scripts": {
-    "postinstall": "pushd example && yarn",
+    "postinstall": "cd example && yarn",
     "pretest": "standard --env node --env jest",
     "test": "jest --env node",
     "posttest": "node example/build.js"
