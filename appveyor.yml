@@ -3,29 +3,31 @@ environment:
     - node_js: 4
     - node_js: 5
     - node_js: 6
+    - node_js: 7
 
 install:
-  - npm install
-  - pushd example && npm install && popd
+  - yarn
 
 test_script:
-  - node --version && npm --version
-  - npm test
-  - pushd example && node build.js && popd
+  - node --version && yarn --version
+  - yarn test
 
 ###
 
 build: off
 
 cache:
-  - node_modules -> npm-shrinkwrap.json
-  - example/node_modules -> example/npm-shrinkwrap.json
+  - "%LOCALAPPDATA%/Yarn"
+  - node_modules -> yarn.lock
+  - example/node_modules -> yarn.lock
 
 clone_depth: 1
 
 init:
   - git config --global core.autocrlf input
   - ps: Install-Product node $env:node_js
+  - choco install yarn
+  - refreshenv
 
 matrix:
   fast_finish: true
