@@ -1,11 +1,11 @@
 environment:
   matrix:
-    - node_js: 4
-    - node_js: 5
-    - node_js: 6
-    - node_js: 7
+    - node_js_version: 4
+    - node_js_version: 5
+    - node_js_version: 6
+    - node_js_version: 7
 
-install:
+before_test:
   - yarn
 
 test_script:
@@ -24,8 +24,8 @@ cache:
 
 clone_depth: 1
 
-init:
-  - ps: Install-Product node $env:node_js $env:platform
+install:
+  - ps: Install-Product node $env:node_js_version $env:platform
   - choco install yarn
   - refreshenv
 
