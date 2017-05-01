@@ -7,6 +7,8 @@
 
 # metalsmith-concat
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/aymericbeaumet/metalsmith-concat.svg)](https://greenkeeper.io/)
+
 A Metalsmith plugin to concatenate files.
 
 ## Installation
