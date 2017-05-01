@@ -1,4 +1,9 @@
-# metalsmith-concat [![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat-square&label=npm)](https://www.npmjs.com/package/metalsmith-concat) [![Linux and OS X build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square&label=linux|osx)](https://travis-ci.org/aymericbeaumet/metalsmith-concat) [![Windows build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
+[![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat-square&label=npm)](https://www.npmjs.com/package/metalsmith-concat)
+[![Linux and OS X build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square&label=linux|osx)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
+[![Windows build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
+[![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat-square&label=dependencies)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
+
+# metalsmith-concat
 
 A Metalsmith plugin to concatenate files.
 
@@ -46,11 +51,16 @@ will be interpreted as minimatch patterns, in this case the order of the
 patterns matters (it will determine the order in which the files are
 concatenated).
 
+_Note: this is relative to the source path and the [search paths](
+https://github.com/aymericbeaumet/metalsmith-concat#searchpaths) (if any)._
+
 #### output
 Type: `String`
 
 It represents the filepath where the concatenated content will be outputted.
 This option is **mandatory**.
+
+_Note: this is relative to the destination path._
 
 #### forceOutput
 Type: `Boolean`
@@ -61,12 +71,12 @@ You can force an existing output file to be overwritten by setting this option
 to `true`.
 
 #### insertNewLine
-Type: `Boolean` / `String`
+Type: `Boolean` | `String`
 Default: `true`
 
 Whether a trailing new line (`\n`) should be appended after each concatenated
-file. Unless you face a problem, you should keep this option on as removing it
-could cause invalid concatenated files (see [this
+file. Unless you face a problem, you should keep this option enabled as removing
+it could cause invalid concatenated files (see [this
 article](http://evanhahn.com/newline-necessary-at-the-end-of-javascript-files/)).
 It is also possible to pass a string, in which case it will be used instead of
 `\n`.
