@@ -6,24 +6,23 @@
     "metalsmith",
     "plugin"
   ],
-  "author": "Aymeric Beaumet <aymeric@beaumet.me>",
+  "author": "Aymeric Beaumet <hi@aymericbeaumet.com>",
   "license": "CC0-1.0",
   "main": "lib",
   "dependencies": {
-    "async": "2.0.0-rc.6",
-    "glob": "7.0.3",
-    "minimatch": "3.0.0"
+    "async": "2.4.0",
+    "glob": "7.1.1",
+    "minimatch": "3.0.3"
   },
   "devDependencies": {
-    "ava": "0.15.2",
-    "codeclimate-test-reporter": "0.3.2",
-    "nyc": "6.4.4",
-    "proxyquire": "1.7.9",
-    "standard": "7.1.2"
+    "jest": "19.0.2",
+    "standard": "10.0.2"
   },
   "scripts": {
-    "test": "standard && nyc --reporter=html --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 ava",
-    "codeclimate": "nyc report --reporter=text-lcov | codeclimate-test-reporter"
+    "postinstall": "cd example && yarn",
+    "pretest": "standard --env node --env jest",
+    "test": "jest --env node",
+    "posttest": "node example/build.js"
   },
   "repository": {
     "type": "git",

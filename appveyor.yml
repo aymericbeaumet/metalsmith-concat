@@ -1,0 +1,39 @@
+environment:
+  matrix:
+    - node_js: 4
+    - node_js: 5
+    - node_js: 6
+    - node_js: 7
+
+before_test:
+  - yarn
+
+test_script:
+  - node --version
+  - yarn --version
+  - yarn test
+
+###
+
+build: off
+
+cache:
+  - "%LOCALAPPDATA%/Yarn"
+  - node_modules -> yarn.lock
+  - example/node_modules -> yarn.lock
+
+clone_depth: 1
+
+install:
+  - ps: Install-Product node $env:node_js $env:platform
+
+matrix:
+  fast_finish: true
+
+platform:
+  - x86
+  - x64
+
+shallow_clone: true
+
+version: '#{build}'

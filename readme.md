@@ -1,9 +1,7 @@
-[![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat&label=npm)](https://www.npmjs.com/package/metalsmith-concat)
-[![Linux build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=linux)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
-[![Windows build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
-[![Code coverage](https://img.shields.io/codeclimate/coverage/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=coverage)](https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
-[![GPA](https://img.shields.io/codeclimate/github/aymericbeaumet/metalsmith-concat.svg?style=flat&label=GPA)](https://codeclimate.com/github/aymericbeaumet/metalsmith-concat)
-[![Dependencies status](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat&label=dependencies)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
+[![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat-square&label=npm)](https://www.npmjs.com/package/metalsmith-concat)
+[![Linux and OS X build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square&label=linux|osx)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
+[![Windows build status](https://img.shields.io/appveyor/ci/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square&label=windows)](https://ci.appveyor.com/project/aymericbeaumet/metalsmith-concat)
+[![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat-square&label=dependencies)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
 
 # metalsmith-concat
 
@@ -33,14 +31,14 @@ $ npm install metalsmith-concat
 ### JavaScript
 
 ```javascript
-var MetalSmith = require('metalsmith');
-var concat = require('metalsmith-concat');
+import MetalSmith from 'metalsmith';
+import concat from 'metalsmith-concat';
 
-Metalsmith(__dirname)
+new Metalsmith(__dirname)
   .use(concat({
     files: 'styles/**/*.css',
-    output: 'styles/app.css'
-  }))
+    output: 'styles/app.css',
+  }));
 ```
 
 #### files
@@ -53,11 +51,16 @@ will be interpreted as minimatch patterns, in this case the order of the
 patterns matters (it will determine the order in which the files are
 concatenated).
 
+_Note: this is relative to the source path and the [search paths](
+https://github.com/aymericbeaumet/metalsmith-concat#searchpaths) (if any)._
+
 #### output
 Type: `String`
 
 It represents the filepath where the concatenated content will be outputted.
 This option is **mandatory**.
+
+_Note: this is relative to the destination path._
 
 #### forceOutput
 Type: `Boolean`
@@ -68,12 +71,12 @@ You can force an existing output file to be overwritten by setting this option
 to `true`.
 
 #### insertNewLine
-Type: `Boolean` / `String`
+Type: `Boolean` | `String`
 Default: `true`
 
 Whether a trailing new line (`\n`) should be appended after each concatenated
-file. Unless you face a problem, you should keep this option on as removing it
-could cause invalid concatenated files (see [this
+file. Unless you face a problem, you should keep this option enabled as removing
+it could cause invalid concatenated files (see [this
 article](http://evanhahn.com/newline-necessary-at-the-end-of-javascript-files/)).
 It is also possible to pass a string, in which case it will be used instead of
 `\n`.
@@ -92,22 +95,37 @@ Default: `[]`
 
 The additional paths to search after the `src` directory given to Metalsmith.
 The paths are resolved relatively to the metalsmith root directory. Absolute
-paths can also been given. This feature is disabled by default. Example:
+paths can also been given. An ignore pattern is applied on the results to make
+sure the `src` directory is not matched twice from a search path.
+
+Let's consider the following example:
+
+```
+src/
+  index.js
+node_modules/
+  react/
+    dist/
+      react.min.js
+```
+
+It is possible to include _React_ from the _node_modules_ before your _index.js_
+from _src_ by using the following configuration:
 
 ```js
 {
   files: [
-    'react/dist/react.min.js', // will be resolved from the node_modules
-    'index.js' // will be resolved from the directory given to Metalsmith
+    'react/dist/react.min.js', // found in node_modules
+    'index.js' // found in src
   ],
-  searchPaths: [ 'node_modules' ]
+  searchPaths: ['node_modules'],
 }
 ```
 
 ## Changelog
 
 * 6.0.0
-  * Expect and produce a `Buffer` for the `contents` key (breaking)
+  * Expect and produce a `Buffer` for the `contents` key
 
 * 5.0.2
   * Simplify the path given in the pattern
