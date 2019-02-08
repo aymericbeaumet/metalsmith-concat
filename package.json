@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-concat",
-  "version": "6.1.0",
+  "version": "6.0.1",
   "description": "A Metalsmith plugin to concatenate files",
   "keywords": [
     "metalsmith",
