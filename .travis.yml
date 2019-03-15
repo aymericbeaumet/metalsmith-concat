@@ -1,34 +1,8 @@
-language: node_js
-node_js:
-  - 4
-  - 5
-  - 6
-  - 7
-
-install:
-  - yarn
-
-script:
-  - node --version
-  - yarn --version
-  - yarn test
-
-###
-
-cache:
-  yarn: true
-  directories:
-    - node_modules
-    - example/node_modules
-
-git:
-  depth: 1
-
-matrix:
-  fast_finish: true
-
 os:
   - linux
   - osx
-
-sudo: false
+language: node_js
+node_js:
+  - node
+  - lts/*
+cache: npm
