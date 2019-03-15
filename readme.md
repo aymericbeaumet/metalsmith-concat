@@ -125,7 +125,7 @@ from _src_ by using the following configuration:
 
 ## Changelog
 
-- 6.0.2
+- 6.0.3
 
   - Update dependencies
 
