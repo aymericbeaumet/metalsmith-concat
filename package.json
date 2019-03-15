@@ -25,7 +25,7 @@
   "scripts": {
     "postinstall": "cd example && npm install",
     "test": "standard --env node --env jest && jest --env node",
-    "posttest": "node example/build.js"
+    "posttest": "cd example && node build.js"
   },
   "repository": {
     "type": "git",
