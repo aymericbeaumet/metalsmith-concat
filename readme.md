@@ -125,6 +125,10 @@ from _src_ by using the following configuration:
 
 ## Changelog
 
+- 6.0.2
+
+  - Update dependencies
+
 - 6.0.0
 
   - Expect and produce a `Buffer` for the `contents` key
