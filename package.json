@@ -4,13 +4,14 @@
   "description": "A Metalsmith plugin to concatenate files",
   "keywords": [
     "metalsmith",
-    "plugin"
+    "plugin",
+    "concatenate"
   ],
   "author": "Aymeric Beaumet <hi@aymericbeaumet.com>",
   "license": "CC0-1.0",
-  "main": "lib",
+  "main": "index.js",
   "files": [
-    "lib/index.js"
+    "index.js"
   ],
   "dependencies": {
     "async": "2.6.1",
@@ -22,7 +23,7 @@
     "standard": "12.0.1"
   },
   "scripts": {
-    "pretest": "cd example && npm i",
+    "postinstall": "cd example && npm install",
     "test": "standard --env node --env jest && jest --env node",
     "posttest": "node example/build.js"
   },
