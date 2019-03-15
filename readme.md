@@ -1,8 +1,4 @@
-[![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat-square)](https://www.npmjs.com/package/metalsmith-concat)
-[![Build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
-[![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat-square)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
-
-# metalsmith-concat
+# metalsmith-concat [![NPM version](https://img.shields.io/npm/v/metalsmith-concat.svg?style=flat-square)](https://www.npmjs.com/package/metalsmith-concat) [![Build status](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat/master.svg?style=flat-square)](https://travis-ci.org/aymericbeaumet/metalsmith-concat) [![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-concat.svg?style=flat-square)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
 
 A Metalsmith plugin to concatenate files.
 
