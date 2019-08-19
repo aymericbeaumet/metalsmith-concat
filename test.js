@@ -1,7 +1,7 @@
 const path = require('path')
 const test = require('ava')
 const sinon = require('sinon')
-const concat = require('.')
+const metalsmithConcat = require('.')
 
 function filesFixture() {
   return {
@@ -22,7 +22,7 @@ test.afterEach.always(() => sinon.restore())
 test.cb('metalsmith-concat should concatenate all files by default', t => {
   t.plan(2)
   const files = filesFixture()
-  const plugin = concat({ output: 'output/path' })
+  const plugin = metalsmithConcat({ output: 'output/path' })
   plugin(files, metalsmithFixture(), error => {
     t.falsy(error)
     t.deepEqual(files, {
@@ -37,7 +37,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({ files: 'first/*', output: 'output/path' })
+    const plugin = metalsmithConcat({ files: 'first/*', output: 'output/path' })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -55,7 +55,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: ['first/*', 'third/*'],
       output: 'output/path',
     })
@@ -75,7 +75,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({ files: '', output: 'output/path' })
+    const plugin = metalsmithConcat({ files: '', output: 'output/path' })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -94,7 +94,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({ files: [], output: 'output/path' })
+    const plugin = metalsmithConcat({ files: [], output: 'output/path' })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -113,7 +113,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({ output: 'output/path' })
+    const plugin = metalsmithConcat({ output: 'output/path' })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -129,7 +129,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: ['third/*', 'second/*', 'first/*'],
       output: 'output/path',
     })
@@ -148,7 +148,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({ files: 'first/*', output: 'output/path' })
+    const plugin = metalsmithConcat({ files: 'first/*', output: 'output/path' })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -166,7 +166,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: 'first/*',
       output: 'output/path',
       insertNewline: true,
@@ -188,7 +188,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: 'first/*',
       output: 'output/path',
       insertNewline: false,
@@ -210,7 +210,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: 'first/*',
       output: 'output/path',
       insertNewline: '\r\n',
@@ -230,7 +230,7 @@ test.cb(
 test.cb('metalsmith-concat should delete the source files by default', t => {
   t.plan(2)
   const files = filesFixture()
-  const plugin = concat({ output: 'output/path' })
+  const plugin = metalsmithConcat({ output: 'output/path' })
   plugin(files, metalsmithFixture(), error => {
     t.falsy(error)
     t.deepEqual(files, {
@@ -245,7 +245,10 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({ output: 'output/path', keepConcatenated: false })
+    const plugin = metalsmithConcat({
+      output: 'output/path',
+      keepConcatenated: false,
+    })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -261,7 +264,10 @@ test.cb(
   t => {
     t.plan(2)
     const files = filesFixture()
-    const plugin = concat({ output: 'output/path', keepConcatenated: true })
+    const plugin = metalsmithConcat({
+      output: 'output/path',
+      keepConcatenated: true,
+    })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -278,7 +284,7 @@ test.cb(
 test.cb('metalsmith-concat should throw if no options object is passed', t => {
   t.plan(2)
   try {
-    concat()
+    metalsmithConcat()
   } catch (error) {
     t.true(error instanceof Error)
     t.is(
@@ -294,7 +300,7 @@ test.cb(
   t => {
     t.plan(2)
     try {
-      concat({})
+      metalsmithConcat({})
     } catch (error) {
       t.true(error instanceof Error)
       t.is(
@@ -311,7 +317,7 @@ test.cb(
   t => {
     t.plan(2)
     try {
-      concat({ output: false })
+      metalsmithConcat({ output: false })
     } catch (error) {
       t.true(error instanceof Error)
       t.is(
@@ -328,7 +334,7 @@ test.cb(
   t => {
     t.plan(2)
     try {
-      concat({ output: '' })
+      metalsmithConcat({ output: '' })
     } catch (error) {
       t.true(error instanceof Error)
       t.is(
@@ -344,7 +350,7 @@ test.cb(
   'metalsmith-concat should return an error if options.output already exists by default',
   t => {
     t.plan(2)
-    const plugin = concat({ output: 'output/path' })
+    const plugin = metalsmithConcat({ output: 'output/path' })
     plugin({ 'output/path': {} }, metalsmithFixture(), error => {
       t.true(error instanceof Error)
       t.is(
@@ -360,7 +366,10 @@ test.cb(
   'metalsmith-concat should return an error if options.output already exists when indicated as option',
   t => {
     t.plan(2)
-    const plugin = concat({ output: 'output/path', forceOutput: false })
+    const plugin = metalsmithConcat({
+      output: 'output/path',
+      forceOutput: false,
+    })
     plugin({ 'output/path': {} }, metalsmithFixture(), error => {
       t.true(error instanceof Error)
       t.is(
@@ -380,7 +389,7 @@ test.cb(
       'output/path1': { contents: Buffer.from('test123') },
       'output/path2': { contents: Buffer.from('456test') },
     }
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: ['output/path1', 'output/path2'],
       output: 'output/path',
       forceOutput: true,
@@ -407,7 +416,7 @@ test.cb(
       'js/other/1.js': { contents: Buffer.from('other1') },
       'js/other/2.js': { contents: Buffer.from('other2') },
     }
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: ['js/jquery.js', 'js/bootstrap/*.js', 'js/**/*.js'],
       output: 'js/app.js',
     })
@@ -433,7 +442,10 @@ test.cb(
     const files = {
       'js/jquery.js': { contents: Buffer.from('jquery') },
     }
-    const plugin = concat({ files: ['js\\jquery.js'], output: 'js\\app.js' })
+    const plugin = metalsmithConcat({
+      files: ['js\\jquery.js'],
+      output: 'js\\app.js',
+    })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -449,7 +461,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = {}
-    const plugin = concat({ files: ['**/*.md'], output: 'output' })
+    const plugin = metalsmithConcat({ files: ['**/*.md'], output: 'output' })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.true(files.output.contents.equals(Buffer.from('')))
@@ -463,7 +475,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = {}
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: ['**/*.md'],
       output: 'output',
       searchPaths: '.',
@@ -483,7 +495,7 @@ test.cb(
   t => {
     t.plan(2)
     const files = {}
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: ['**/*.md'],
       output: 'output',
       searchPaths: ['.'],
@@ -505,7 +517,7 @@ test.serial.cb('metalsmith-concat should forward glob errors', t => {
     callback(new Error('glob.glob error'))
   )
   const files = {}
-  const plugin = concat({
+  const plugin = metalsmithConcat({
     files: ['**/*.md'],
     output: 'output',
     searchPaths: ['.'],
@@ -524,7 +536,7 @@ test.serial.cb('metalsmith-concat should forward fs.readFile errors', t => {
     callback(new Error('fs.readFile error'))
   )
   const files = {}
-  const plugin = concat({
+  const plugin = metalsmithConcat({
     files: ['**/*.md'],
     output: 'output',
     searchPaths: ['.'],
@@ -545,7 +557,7 @@ test.cb(
       '01_foo.css': { contents: Buffer.from('first') },
       '02_bar.css': { contents: Buffer.from('second') },
     }
-    const plugin = concat({ output: 'output/path' })
+    const plugin = metalsmithConcat({ output: 'output/path' })
     plugin(files, metalsmithFixture(), error => {
       t.falsy(error)
       t.deepEqual(files, {
@@ -564,7 +576,7 @@ test.cb(
     const files = {
       'foo/bar/baz': { contents: Buffer.from('foobarbaz') },
     }
-    const plugin = concat({
+    const plugin = metalsmithConcat({
       files: 'foo//\\\\bar\\\\//baz',
       output: 'output/path',
     })
