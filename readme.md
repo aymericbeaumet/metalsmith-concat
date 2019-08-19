@@ -77,9 +77,9 @@ _Note: this is relative to the destination path._
 Type: `boolean`
 Default: `false`
 
-By default metalsmith-concat return an error if the output file already exists.
-You can force an existing output file to be overwritten by setting this option
-to `true`.
+By default metalsmith-concat returns an error if the output file already
+exists. When that happens, you can force the existing output file to be
+overwritten by setting this option to `true`.
 
 #### options.insertNewLine
 
@@ -112,7 +112,12 @@ Metalsmith's root directory. Absolute paths are also supported. An ignore
 pattern is applied on the results to make sure the `src` directory is not
 matched twice from a custom search path.
 
-Let's consider the example below:
+## FAQ
+
+> I am developing a React application and want to include _react.min.js_
+> before _index.js_ so I can use `React` in my code. What should I do?
+
+Let's consider you have the following source code:
 
 ```
 src/
@@ -123,8 +128,10 @@ node_modules/
       react.min.js
 ```
 
-It is possible to include _React_ from the _node_modules_ before your _index.js_
-from _src_ by using the following configuration:
+The easiest way to achieve what you want with this plugin is to simply match
+_react.min.js_ before _index.js_ in the `files` array, this priority will be
+respected by the plugin. Do not forget to add the `node_modules` search path
+though, as this directory is not searched by default.
 
 ```javascript
 {
