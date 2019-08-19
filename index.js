@@ -6,7 +6,7 @@ const async = require('async')
 const glob = require('glob')
 const minimatch = require('minimatch')
 
-function gathererFromSourceDirectory(source, pattern, keepConcatenated) {
+function gathererFromSourceDirectory(source, pattern, { keepConcatenated }) {
   return done => {
     // We loop over all the files Metalsmith knows of and return an array of all
     // the files contents matching the given pattern
@@ -15,7 +15,7 @@ function gathererFromSourceDirectory(source, pattern, keepConcatenated) {
       Object.keys(source).reduce((acc, filepath) => {
         if (minimatch(filepath, pattern)) {
           acc.push(source[filepath].contents)
-          if (keepConcatenated === false) {
+          if (!keepConcatenated) {
             delete source[filepath]
           }
         }
@@ -113,20 +113,20 @@ module.exports = (options = {}) => {
     const gatherers = patterns.reduce(
       (acc, pattern) => [
         ...acc,
-        gathererFromSourceDirectory(files, pattern, keepConcatenated),
+        gathererFromSourceDirectory(files, pattern, { keepConcatenated }),
         gathererFromSearchPaths(metalsmith._directory, searchPaths, pattern),
       ],
       []
     )
 
     // Gather all the files contents and generate the final concatenated file
-    async.parallel(gatherers, (error, gathered) => {
+    async.parallel(gatherers, (error, gatherersResults) => {
       if (error) {
         return done(error)
       }
 
       const filesContents = [
-        ...[].concat(...gathered), // Shallow flatten
+        ...[].concat(...gatherersResults), // Shallow flatten the results from each gatherers [[a], [b]] -> [a, b]
         '', // Append an empty string so that the final join result includes a trailing new line
       ]
 
