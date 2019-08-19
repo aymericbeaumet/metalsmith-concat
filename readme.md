@@ -51,7 +51,7 @@ Default: `{}`
 #### options.files
 
 Type: `string` / `string[]`
-Default: `'**/*'`
+Default: `['**/*']`
 
 This defines which files are concatenated. This string will be interpreted as a
 [minimatch](https://github.com/isaacs/minimatch) pattern. An array of strings
@@ -91,7 +91,7 @@ file. Unless you face a problem, you should keep this option enabled as
 removing it could cause invalid concatenated files (see [this
 article](http://evanhahn.com/newline-necessary-at-the-end-of-javascript-files/)).
 It is also possible to pass a string, in which case it will be used instead
-of `\n`.
+of `\n` (e.g., `\r\n`).
 
 #### options.keepConcatenated
 
