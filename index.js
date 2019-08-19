@@ -59,7 +59,7 @@ function gathererFromSearchPaths(rootPath, searchPaths, pattern) {
           return done(error)
         }
 
-        return done(null, [].concat(...filesContents)) // shallow flatten
+        return done(null, [].concat(...filesContents)) // Shallow flatten
       }
     )
   }
