@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/aymericbeaumet/metalsmith-concat.git"
   },
+  "license": "MIT",
   "author": {
     "name": "Aymeric Beaumet",
     "email": "hi@aymericbeaumet.com",
