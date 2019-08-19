@@ -498,7 +498,7 @@ test.cb(
   }
 )
 
-// serial because of mocking
+// Serial because of mocking
 test.serial.cb('metalsmith-concat should forward glob errors', t => {
   t.plan(2)
   sinon.replace(require('glob'), 'glob', (_pattern, _options, callback) =>
@@ -517,7 +517,7 @@ test.serial.cb('metalsmith-concat should forward glob errors', t => {
   })
 })
 
-// serial because of mocking
+// Serial because of mocking
 test.serial.cb('metalsmith-concat should forward fs.readFile errors', t => {
   t.plan(2)
   sinon.replace(require('fs'), 'readFile', (_filepath, callback) =>

@@ -75,6 +75,7 @@ module.exports = (options = {}) => {
       '`options.output` is mandatory and has to be a non-empty string'
     )
   }
+
   const output = metalsmithifyPath(options.output)
 
   const patterns = (Array.isArray(options.files)
