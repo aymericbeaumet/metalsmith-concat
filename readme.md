@@ -50,7 +50,7 @@ Default: `{}`
 
 #### options.files
 
-Type: `string` / `string[]`
+Type: `string | string[]`
 Default: `['**/*']`
 
 This defines which files are concatenated. This string will be interpreted as a
@@ -83,7 +83,7 @@ to `true`.
 
 #### options.insertNewLine
 
-Type: `boolean` | `string`
+Type: `boolean | string`
 Default: `true`
 
 Whether a trailing new line (`\n`) should be appended after each concatenated
@@ -104,7 +104,7 @@ and deleted from the build (thus only keeping the newly created file at
 
 #### options.searchPaths
 
-Type: `string` / `string[]`
+Type: `string | string[]`
 Default: `[]`
 
 Specify additional paths to search. The paths are resolved relatively to
