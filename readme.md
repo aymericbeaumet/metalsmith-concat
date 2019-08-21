@@ -1,20 +1,23 @@
-# metalsmith-concat [![Build Status](https://travis-ci.org/aymericbeaumet/metalsmith-concat.svg?branch=master)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
+# metalsmith-concat
 
-> A Metalsmith plugin to concatenate files
+[![npm](https://img.shields.io/npm/v/metalsmith-concat?style=flat-square)](https://www.npmjs.com/package/metalsmith-concat)
+[![Build](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat?style=flat-square)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
+[![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-concat?style=flat-square)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
+[![Issues](https://img.shields.io/github/issues/aymericbeaumet/metalsmith-concat?style=flat-square)](https://github.com/aymericbeaumet/metalsmith-concat/issues)
+
+This plugin enables you to concatenate files together.
 
 ## Install
 
 ```shell
-npm install --save metalsmith-concat
+npm install metalsmith-concat
 ```
 
 ## Usage
 
-This plugin enables you to concatenate files together.
-
 ### CLI
 
-**metalsmith.json**
+_metalsmith.json_
 
 ```json
 {
@@ -27,11 +30,11 @@ This plugin enables you to concatenate files together.
 }
 ```
 
-### API
+### Node.js
 
 ```javascript
-import metalsmith from 'metalsmith'
-import metalsmithConcat from 'metalsmith-concat'
+const metalsmith = require('metalsmith')
+const metalsmithConcat = require('metalsmith-concat')
 
 metalsmith(__dirname).use(
   metalsmithConcat({
@@ -41,7 +44,9 @@ metalsmith(__dirname).use(
 )
 ```
 
-**metalsmithConcat(options)**
+## API
+
+### metalsmithConcat(options)
 
 #### options
 
@@ -59,7 +64,8 @@ will be interpreted as distinct minimatch patterns, in this case the order of
 the patterns matters (it will determine the order in which the files are
 concatenated).
 
-_Note: this is relative to both the source path and the [search
+_Note: during the search, these patterns will be evaluated relativetly to
+both the source path and the [search
 paths](https://github.com/aymericbeaumet/metalsmith-concat#optionssearchpaths)
 (if any)._
 

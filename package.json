@@ -3,6 +3,7 @@
   "version": "7.0.0",
   "description": "A Metalsmith plugin to concatenate files",
   "keywords": [
+    "concat",
     "concatenate",
     "metalsmith",
     "plugin"
@@ -19,7 +20,8 @@
     "url": "https://aymericbeaumet.com"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "lib/*"
   ],
   "scripts": {
     "format": "prettier --write \"{,.}**.{js,md,yml}\" && xo --fix",
@@ -38,13 +40,15 @@
     "useTabs": false
   },
   "dependencies": {
-    "async": "3.1.0",
-    "glob": "7.1.4",
-    "minimatch": "3.0.4"
+    "async": "^3.1.0",
+    "glob": "^7.1.4",
+    "minimatch": "^3.0.4"
   },
   "devDependencies": {
     "ava": "2.3.0",
+    "metalsmith": "2.3.0",
     "prettier": "1.18.2",
+    "rimraf": "3.0.0",
     "sinon": "7.4.1",
     "xo": "0.24.0"
   }
