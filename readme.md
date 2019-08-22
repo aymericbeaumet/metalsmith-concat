@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/metalsmith-concat?style=flat-square)](https://www.npmjs.com/package/metalsmith-concat)
 [![Build](https://img.shields.io/travis/aymericbeaumet/metalsmith-concat?style=flat-square)](https://travis-ci.org/aymericbeaumet/metalsmith-concat)
 [![Dependencies](https://img.shields.io/david/aymericbeaumet/metalsmith-concat?style=flat-square)](https://david-dm.org/aymericbeaumet/metalsmith-concat)
-[![Issues](https://img.shields.io/github/issues/aymericbeaumet/metalsmith-concat?style=flat-square)](https://github.com/aymericbeaumet/metalsmith-concat/issues)
+[![Issues](https://img.shields.io/github/issues/aymericbeaumet/metalsmith-concat?style=flat-square)](https://github.com/aymericbeaumet/metalsmith-concat/issues) [![Greenkeeper badge](https://badges.greenkeeper.io/aymericbeaumet/metalsmith-concat.svg)](https://greenkeeper.io/)
 
 This plugin enables you to concatenate files together.
 
