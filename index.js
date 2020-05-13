@@ -4,8 +4,9 @@ const async = require('async');
 const glob = require('glob');
 const minimatch = require('minimatch');
 
-// Must be called to clean the glob/minimatch inputs and patterns as they only
-// support forward slashes (see: https://github.com/isaacs/node-glob#windows)
+// Must be called to convert the glob/minimatch inputs and patterns to the
+// forward slash path notation (see:
+// https://github.com/isaacs/node-glob#windows)
 function backslashToSlash(s) {
 	return s.replace(/\\/g, '/');
 }

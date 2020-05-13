@@ -462,7 +462,7 @@ test.cb(
 		});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
-			t.is(files.output.contents.toString(), 'anotherdir\n\nroot\n\n');
+			t.is(files.output.contents.toString().replace(/\/r\n/g, '\n'), 'anotherdir\n\nroot\n\n');
 			t.end();
 		});
 	}
@@ -480,7 +480,7 @@ test.cb(
 		});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
-			t.is(files.output.contents.toString(), 'anotherdir\n\nroot\n\n');
+			t.is(files.output.contents.toString().replace(/\/r\n/g, '\n'), 'anotherdir\n\nroot\n\n');
 			t.end();
 		});
 	}
