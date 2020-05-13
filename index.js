@@ -54,7 +54,7 @@ function gathererFromSearchPaths(rootPath, searchPaths, pattern) {
 						}
 
 						async.map(
-							filepaths.map(filepath => path.normalize(path.resolve(rootPath, filepath))),
+							filepaths.map(filepath => path.resolve(rootPath, filepath)),
 							fs.readFile,
 							callback
 						);
@@ -94,12 +94,11 @@ module.exports = (options = {}) => {
 			'' :
 			'\n');
 
-	const searchPaths = (Array.isArray(options.searchPaths) ?
+	const searchPaths = Array.isArray(options.searchPaths) ?
 		options.searchPaths :
 		(typeof options.searchPaths === 'string' ?
 			[options.searchPaths] :
-			[])
-	);
+			[]);
 
 	const {forceOutput = false, keepConcatenated = false} = options;
 
