@@ -10,10 +10,11 @@ function backslashToSlash(s) {
 	return s.replace(/\\/g, '/');
 }
 
+// Source and pattern are expected to be in the forward slash form
 function gathererFromSourceDirectory(source, pattern, {keepConcatenated}) {
 	// This gather loops over all the files Metalsmith knows of and return an
 	// array of all the files contents matching the given pattern. Before the
-	// filepaths are matched, they are normalized so that the \ become /.
+	// filepaths are matched, they are normalized to the forward slash form.
 	return function (done) {
 		return done(
 			null,
@@ -31,6 +32,7 @@ function gathererFromSourceDirectory(source, pattern, {keepConcatenated}) {
 	};
 }
 
+// RootPath, searchPaths and pattern are expected to be in the forward slash form
 function gathererFromSearchPaths(rootPath, searchPaths, pattern) {
 	// This gatherer loops over the search paths and return an array of all the files
 	// contents matching the given pattern
