@@ -5,15 +5,15 @@ const glob = require('glob');
 const minimatch = require('minimatch');
 
 // Must be called to convert the glob/minimatch inputs and patterns to the
-// forward slash path notation (see:
-// https://github.com/isaacs/node-glob#windows)
+// forward slash path notation
+// (see: https://github.com/isaacs/node-glob#windows)
 function backslashToSlash(s) {
 	return s.replace(/\\/g, '/');
 }
 
 // Source and pattern are expected to be in the forward slash form
 function gathererFromSourceDirectory(source, pattern, {keepConcatenated}) {
-	// This gather loops over all the files Metalsmith knows of and return an
+	// This gatherer loops over all the files Metalsmith knows of and return an
 	// array of all the files contents matching the given pattern. Before the
 	// filepaths are matched, they are normalized to the forward slash form.
 	return function (done) {
