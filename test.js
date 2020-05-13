@@ -436,28 +436,6 @@ test.cb(
 	}
 );
 
-// https://github.com/aymericbeaumet/metalsmith-concat/issues/8
-test.cb(
-	'metalsmith-concat should normalize options.output and options.files to be cross-platform compatible',
-	t => {
-		t.plan(2);
-		const files = {
-			'js/jquery.js': {contents: Buffer.from('jquery')}
-		};
-		const plugin = metalsmithConcat({
-			files: ['js\\jquery.js'],
-			output: 'js\\app.js'
-		});
-		plugin(files, metalsmithFixture(), error => {
-			t.falsy(error);
-			t.deepEqual(files, {
-				'js/app.js': {contents: Buffer.from('jquery\n')}
-			});
-			t.end();
-		});
-	}
-);
-
 test.cb(
 	'metalsmith-concat should not include files from options.searchPaths by default',
 	t => {
@@ -466,7 +444,7 @@ test.cb(
 		const plugin = metalsmithConcat({files: ['**/*.md'], output: 'output'});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
-			t.true(files.output.contents.equals(Buffer.from('')));
+			t.deepEqual(files.output.contents, Buffer.from(''));
 			t.end();
 		});
 	}
@@ -484,9 +462,7 @@ test.cb(
 		});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
-			t.true(
-				files.output.contents.equals(Buffer.from('anotherdir\n\nroot\n\n'))
-			);
+			t.deepEqual(files.output.contents, Buffer.from('anotherdir\n\nroot\n\n'));
 			t.end();
 		});
 	}
@@ -504,9 +480,7 @@ test.cb(
 		});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
-			t.true(
-				files.output.contents.equals(Buffer.from('anotherdir\n\nroot\n\n'))
-			);
+			t.deepEqual(files.output.contents, Buffer.from('anotherdir\n\nroot\n\n'));
 			t.end();
 		});
 	}
@@ -570,22 +544,42 @@ test.cb(
 	}
 );
 
-// https://github.com/aymericbeaumet/metalsmith-concat/issues/26
 test.cb(
-	'metalsmith-concat should simplify the given path in the pattern',
+	'metalsmith-concat should support unix style "/" delimiter',
 	t => {
 		t.plan(2);
 		const files = {
-			'foo/bar/baz': {contents: Buffer.from('foobarbaz')}
+			'js/jquery.js': {contents: Buffer.from('jquery')}
 		};
 		const plugin = metalsmithConcat({
-			files: 'foo//\\\\bar\\\\//baz',
-			output: 'output/path'
+			files: ['js/jquery.js'],
+			output: 'js/app.js'
 		});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
 			t.deepEqual(files, {
-				'output/path': {contents: Buffer.from('foobarbaz\n')}
+				'js/app.js': {contents: Buffer.from('jquery\n')}
+			});
+			t.end();
+		});
+	}
+);
+
+test.cb(
+	'metalsmith-concat should support windows style "\\" delimiter (even with "/" in pattern)',
+	t => {
+		t.plan(2);
+		const files = {
+			'js\\jquery.js': {contents: Buffer.from('jquery')}
+		};
+		const plugin = metalsmithConcat({
+			files: ['js/jquery.js'],
+			output: 'js\\app.js'
+		});
+		plugin(files, metalsmithFixture(), error => {
+			t.falsy(error);
+			t.deepEqual(files, {
+				'js\\app.js': {contents: Buffer.from('jquery\n')}
 			});
 			t.end();
 		});

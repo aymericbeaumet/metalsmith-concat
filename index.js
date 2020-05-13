@@ -4,14 +4,21 @@ const async = require('async');
 const glob = require('glob');
 const minimatch = require('minimatch');
 
+// Must be called to clean the glob/minimatch inputs and patterns as they only
+// support forward slashes (see: https://github.com/isaacs/node-glob#windows)
+function backslashToSlash(s) {
+	return s.replace(/\\/g, '/');
+}
+
 function gathererFromSourceDirectory(source, pattern, {keepConcatenated}) {
-	return done => {
-		// We loop over all the files Metalsmith knows of and return an array of all
-		// the files contents matching the given pattern
+	// This gather loops over all the files Metalsmith knows of and return an
+	// array of all the files contents matching the given pattern. Before the
+	// filepaths are matched, they are normalized so that the \ become /.
+	return function (done) {
 		return done(
 			null,
 			Object.keys(source).reduce((acc, filepath) => {
-				if (minimatch(filepath, pattern)) {
+				if (minimatch(backslashToSlash(filepath), pattern)) {
 					acc.push(source[filepath].contents);
 					if (!keepConcatenated) {
 						delete source[filepath];
@@ -25,17 +32,17 @@ function gathererFromSourceDirectory(source, pattern, {keepConcatenated}) {
 }
 
 function gathererFromSearchPaths(rootPath, searchPaths, pattern) {
-	return done => {
-		// We loop over the search paths and return an array of all the files
-		// contents matching the given pattern
+	// This gatherer loops over the search paths and return an array of all the files
+	// contents matching the given pattern
+	return function (done) {
 		async.map(
 			searchPaths,
 			(searchPath, callback) => {
-				const globPattern = path.resolve(rootPath, searchPath, pattern);
+				const globPattern = `${rootPath}/${searchPath}/${pattern}`;
 				glob.glob(
 					globPattern,
 					{
-						ignore: path.resolve(rootPath, 'src/**/*'),
+						ignore: `${rootPath}/src/**/*`,
 						minimatch,
 						nodir: true
 					},
@@ -45,7 +52,7 @@ function gathererFromSearchPaths(rootPath, searchPaths, pattern) {
 						}
 
 						async.map(
-							filepaths.map(filepath => path.resolve(rootPath, filepath)),
+							filepaths.map(filepath => path.normalize(path.resolve(rootPath, filepath))),
 							fs.readFile,
 							callback
 						);
@@ -57,14 +64,10 @@ function gathererFromSearchPaths(rootPath, searchPaths, pattern) {
 					return done(error);
 				}
 
-				return done(null, [].concat(...filesContents)); // Shallow flatten
+				return done(null, [].concat(...filesContents)); // Flatten one level
 			}
 		);
 	};
-}
-
-function metalsmithifyPath(path) {
-	return path.replace(/[/\\]+/g, '/');
 }
 
 module.exports = (options = {}) => {
@@ -74,14 +77,14 @@ module.exports = (options = {}) => {
 		);
 	}
 
-	const output = metalsmithifyPath(options.output);
+	const output = options.output;
 
 	const patterns = (Array.isArray(options.files) ?
 		options.files :
 		(typeof options.files === 'string' ?
 			[options.files] :
 			['**/*'])
-	).map(p => metalsmithifyPath(p));
+	);
 
 	const EOL = typeof options.insertNewline === 'string' ?
 		options.insertNewline :
@@ -89,11 +92,12 @@ module.exports = (options = {}) => {
 			'' :
 			'\n');
 
-	const searchPaths = Array.isArray(options.searchPaths) ?
+	const searchPaths = (Array.isArray(options.searchPaths) ?
 		options.searchPaths :
 		(typeof options.searchPaths === 'string' ?
 			[options.searchPaths] :
-			[]);
+			[])
+	).map(sp => backslashToSlash(sp));
 
 	const {forceOutput = false, keepConcatenated = false} = options;
 
@@ -111,7 +115,7 @@ module.exports = (options = {}) => {
 			(acc, pattern) => [
 				...acc,
 				gathererFromSourceDirectory(files, pattern, {keepConcatenated}),
-				gathererFromSearchPaths(metalsmith._directory, searchPaths, pattern)
+				gathererFromSearchPaths(backslashToSlash(metalsmith._directory), searchPaths, pattern)
 			],
 			[]
 		);
@@ -124,7 +128,7 @@ module.exports = (options = {}) => {
 
 			const filesContents = [
 				...[].concat(...gatherersResults), // Shallow flatten the results from each gatherers [[a], [b]] -> [a, b]
-				'' // Append an empty string so that the final join result includes a trailing new line
+				'' // Append an empty string so that the final join result includes a trailing newline
 			];
 
 			files[output] = {contents: Buffer.from(filesContents.join(EOL))};

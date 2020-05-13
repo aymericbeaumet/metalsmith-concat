@@ -58,10 +58,10 @@ Type: `string | string[]`
 Default: `['**/*']`
 
 This defines which files are concatenated. This string will be interpreted as a
-[minimatch](https://github.com/isaacs/minimatch) pattern. An array of strings
-will be interpreted as distinct minimatch patterns, in this case the order of
-the patterns matters (it will determine the order in which the files are
-concatenated).
+[minimatch](https://github.com/isaacs/minimatch) pattern. **It is mandatory to
+use forward slashes, even on Windows.** An array of strings will be interpreted
+as distinct minimatch patterns, in this case the order of the patterns matters
+(it will determine the order in which the files are concatenated).
 
 _Note: during the search, these patterns will be evaluated relativetly to
 both the source path and the [search
@@ -73,7 +73,8 @@ paths](https://github.com/aymericbeaumet/metalsmith-concat#optionssearchpaths)
 Type: `string`
 
 It represents the filepath where the concatenated content will be outputted.
-This option is **mandatory**.
+This option is **mandatory**. You are free to use `/` or `\` path delimitors
+for this option.
 
 _Note: this is relative to the destination path._
 
@@ -115,7 +116,8 @@ Default: `[]`
 Specify additional paths to search. The paths are resolved relatively to
 Metalsmith's root directory. Absolute paths are also supported. An ignore
 pattern is applied on the results to make sure the `src` directory is not
-matched twice from a custom search path.
+matched twice from a custom search path. You are free to use `/` or `\` path
+delimitors for this option.
 
 ## FAQ
 
