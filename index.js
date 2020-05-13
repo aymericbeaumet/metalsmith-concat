@@ -97,7 +97,7 @@ module.exports = (options = {}) => {
 		(typeof options.searchPaths === 'string' ?
 			[options.searchPaths] :
 			[])
-	).map(sp => backslashToSlash(sp));
+	);
 
 	const {forceOutput = false, keepConcatenated = false} = options;
 
@@ -115,7 +115,11 @@ module.exports = (options = {}) => {
 			(acc, pattern) => [
 				...acc,
 				gathererFromSourceDirectory(files, pattern, {keepConcatenated}),
-				gathererFromSearchPaths(backslashToSlash(metalsmith._directory), searchPaths, pattern)
+				gathererFromSearchPaths(
+					backslashToSlash(metalsmith._directory),
+					searchPaths.map(sp => backslashToSlash(sp)),
+					pattern
+				)
 			],
 			[]
 		);

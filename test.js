@@ -462,7 +462,7 @@ test.cb(
 		});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
-			t.deepEqual(files.output.contents, Buffer.from('anotherdir\n\nroot\n\n'));
+			t.is(files.output.contents.toString(), 'anotherdir\n\nroot\n\n');
 			t.end();
 		});
 	}
@@ -480,7 +480,7 @@ test.cb(
 		});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
-			t.deepEqual(files.output.contents, Buffer.from('anotherdir\n\nroot\n\n'));
+			t.is(files.output.contents.toString(), 'anotherdir\n\nroot\n\n');
 			t.end();
 		});
 	}
