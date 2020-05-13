@@ -444,7 +444,7 @@ test.cb(
 		const plugin = metalsmithConcat({files: ['**/*.md'], output: 'output'});
 		plugin(files, metalsmithFixture(), error => {
 			t.falsy(error);
-			t.deepEqual(files.output.contents, Buffer.from(''));
+			t.is(files.output.contents.toString(), '');
 			t.end();
 		});
 	}
