@@ -58,10 +58,11 @@ Type: `string | string[]`
 Default: `['**/*']`
 
 This defines which files are concatenated. This string will be interpreted as a
-[minimatch](https://github.com/isaacs/minimatch) pattern. An array of strings
-will be interpreted as distinct minimatch patterns, in this case the order of
-the patterns matters (it will determine the order in which the files are
-concatenated).
+[minimatch](https://github.com/isaacs/minimatch) pattern. **It is mandatory to
+use forward slashes for this specific option, even on Windows.** An array of
+strings will be interpreted as distinct minimatch patterns, in this case the
+order of the patterns matters (it will determine the order in which the files
+are concatenated).
 
 _Note: during the search, these patterns will be evaluated relativetly to
 both the source path and the [search
